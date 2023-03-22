@@ -1,15 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package br.com.projeto_1.view;
 
 import javax.swing.JOptionPane;
 
-
 /**
  *
- * @author jessevitorino
+ * @author Aluno
  */
 public class PrincipalVIEW extends javax.swing.JFrame {
 
@@ -32,31 +32,36 @@ public class PrincipalVIEW extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        menuCadastro = new javax.swing.JMenu();
-        itemMenuCliente = new javax.swing.JMenuItem();
+        itemMenuCliente = new javax.swing.JMenu();
+        cutMenuItem = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menuCadastro.setMnemonic('f');
-        menuCadastro.setText("Cadastro");
+        itemMenuCliente.setMnemonic('e');
+        itemMenuCliente.setText("Cadastro");
 
-        itemMenuCliente.setMnemonic('o');
-        itemMenuCliente.setText("Cliente");
-        itemMenuCliente.addActionListener(new java.awt.event.ActionListener() {
+        cutMenuItem.setMnemonic('t');
+        cutMenuItem.setText("Cliente");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuClienteActionPerformed(evt);
+                cutMenuItemActionPerformed(evt);
             }
         });
-        menuCadastro.add(itemMenuCliente);
+        itemMenuCliente.add(cutMenuItem);
 
-        menuBar.add(menuCadastro);
+        menuBar.add(itemMenuCliente);
 
         menuSair.setMnemonic('h');
         menuSair.setText("Sair");
         menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuSairMouseClicked(evt);
+            }
+        });
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
             }
         });
         menuBar.add(menuSair);
@@ -67,48 +72,45 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+        sair();
+    }//GEN-LAST:event_menuSairActionPerformed
+
     private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
         sair();
     }//GEN-LAST:event_menuSairMouseClicked
 
-    private void itemMenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuClienteActionPerformed
-       abreClienteVIEW();
-    }//GEN-LAST:event_itemMenuClienteActionPerformed
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+        abreClienteVIEW();
+    }//GEN-LAST:event_cutMenuItemActionPerformed
 
-    private void sair() {
-        Object[] options = {"Sair", "Cancelar"};
-        if (JOptionPane.showOptionDialog(null, "Desejar sair do Sistema ", "Informação",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0])!= 0) {
-        } else {
-            System.exit(0);
-        }
-    }    
-    
-    
-    
-    
-    
-    
-    
-    
-private void abreClienteVIEW(){
-    ClienteVIEW clienteVIEW = new ClienteVIEW ();
-    this.desktopPane.add(clienteVIEW);
-    clienteVIEW.setVisible(true);
-}  
     /**
      * @param args the command line arguments
      */
+    
+    public void sair(){
+        Object[] options = {"Sair", "Cancelar"};
+        if(JOptionPane.showOptionDialog(null, "Deseja sair do Sistema", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0])==0){
+            System.exit(0);
+        }
+    }
+    private void abreClienteVIEW(){
+        ClienteVIEW clienteVIEW = new ClienteVIEW();
+        this.desktopPane.add(clienteVIEW);
+        clienteVIEW.setVisible(true);
+        clienteVIEW.setPosicao();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -142,10 +144,10 @@ private void abreClienteVIEW(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenuItem itemMenuCliente;
+    private javax.swing.JMenu itemMenuCliente;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuSair;
     // End of variables declaration//GEN-END:variables
 

@@ -1,0 +1,17 @@
+create table Cliente(
+nomeCli varchar[50],
+logradouroCli varchar[50],
+idCli serial,
+numeroCli integer,
+bairroCli varchar[30],
+cidadeCli varchar[30],
+estadoCli varchar[2],
+cepCli varchar[8],
+cpfCli varchar[14],
+rgCli varchar[15],
+constraint clientePK primary key (idCli),
+constraint clienteCpfKey unique (cpfCli)
+)
+
+select * from Cliente
+insert into Cliente()
