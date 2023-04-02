@@ -1,17 +1,14 @@
-create table Cliente(
-nomeCli varchar[50],
-logradouroCli varchar[50],
-idCli serial,
-numeroCli integer,
-bairroCli varchar[30],
-cidadeCli varchar[30],
-estadoCli varchar[2],
-cepCli varchar[8],
-cpfCli varchar[14],
-rgCli varchar[15],
-constraint clientePK primary key (idCli),
-constraint clienteCpfKey unique (cpfCli)
+CREATE TABLE avaliacao
+(
+    id_cli serial,
+    nome_cli character varying(50),
+    prontuario_cli character varying(50),
+    turma_cli integer,
+    rg_cli character varying(30),
+    curso_cli character varying(30),
+    data_cli character varying(30),    
+    cpf_cli character varying(14),
+    estaluno_cli character varying(15),
+    CONSTRAINT cliente_pkey PRIMARY KEY (id_cli),
+    CONSTRAINT cliente_cpf_key UNIQUE (cpf_cli)
 )
-
-select * from Cliente
-insert into Cliente()
